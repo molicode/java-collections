@@ -18,9 +18,10 @@ public class ApplicationWithArrays {
 
     Room[] moreRooms = new Room[4];
     System.arraycopy(rooms, 0, moreRooms, 0, rooms.length);
+    // origen-Array, source-position, destination-Array, destination-position, origen-length
     moreRooms[moreRooms.length - 1] = oxford;
 
-    getPotentialRevenue(rooms);
+    getPotentialRevenue(moreRooms);
   }
 
   private static double getPotentialRevenue(Room[] rooms) {
