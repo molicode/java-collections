@@ -26,7 +26,7 @@ public class ApplicationWithArrays {
 
   private static double getPotentialRevenue(Room[] rooms) {
     return Arrays.stream(rooms)
-        .mapToDouble(room -> room.getRate())
+        .mapToDouble(Room::getRate)
         .sum();
   }
 }
