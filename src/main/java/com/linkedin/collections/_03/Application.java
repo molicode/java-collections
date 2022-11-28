@@ -1,4 +1,4 @@
-package main.java.com.linkedin.collections._03;
+package com.linkedin.collections._03;
 
 import java.util.ArrayDeque;
 import java.util.Collection;

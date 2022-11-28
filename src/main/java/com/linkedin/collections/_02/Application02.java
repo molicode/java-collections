@@ -1,8 +1,8 @@
-package main.java.com.linkedin.collections._02;
+package com.linkedin.collections._02;
 
 public class Application02 {
 
-  public static void main(String[] args){
+  public static void main(String[] args) {
     Contract contract = new Implementation();
     printTerms(contract);
   }

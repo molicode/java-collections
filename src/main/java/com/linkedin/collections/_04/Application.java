@@ -1,9 +1,9 @@
-package main.java.com.linkedin.collections._04;
+package com.linkedin.collections._04;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import main.java.com.linkedin.collections._01.Room;
+import com.linkedin.collections._01.Room;
 
 public class Application {
 

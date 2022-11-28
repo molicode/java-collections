@@ -1,8 +1,6 @@
-package main.java.com.linkedin.collections._01;
+package com.linkedin.collections._01;
 
 import java.util.Arrays;
-
-import main.java.com.linkedin.collections._01.Room;
 
 public class ApplicationWithArrays {
 

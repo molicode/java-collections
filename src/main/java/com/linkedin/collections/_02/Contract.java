@@ -1,4 +1,4 @@
-package main.java.com.linkedin.collections._02;
+package com.linkedin.collections._02;
 
 public interface Contract extends ExtendedContract {
 
