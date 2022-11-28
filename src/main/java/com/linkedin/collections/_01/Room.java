@@ -1,4 +1,4 @@
-package main.java.com.linkedin.collections;
+package main.java.com.linkedin.collections._01;
 
 public class Room {
 
