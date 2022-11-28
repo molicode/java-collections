@@ -64,9 +64,6 @@ public class Car {
 
     Car car = (Car) o;
 
-    if (mileage != car.mileage) {
-      return false;
-    }
     if (!Objects.equals(make, car.make)) {
       return false;
     }
