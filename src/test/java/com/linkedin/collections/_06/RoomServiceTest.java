@@ -2,12 +2,14 @@ package com.linkedin.collections._06;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Collection;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class RoomServiceTest {
+class RoomServiceTest {
 
   RoomService service;
 
@@ -31,37 +33,40 @@ public class RoomServiceTest {
     this.service.createRoom("Piccadilly", "Guest Room", 3, 125.00);
     this.service.createRoom("Cambridge", "Premiere Room", 3, 175.00);
     this.service.createRoom("Victoria", "Suite", 5, 225.00);
-
-  }
-
-  @Test
-  void testCreateRoom() {
-
     this.service.createRoom("Westminister", "Premiere Room", 4, 200.00);
 
+  }
+
+  @Test
+  void testHasRoom() {
+
+    assertFalse(this.service.hasRoom(this.manchester));
+    assertTrue(this.service.hasRoom(this.cambridge));
+  }
+
+  @Test
+  void testAsArray() {
+
+    Room[] rooms = this.service.asArray();
+
+    assertEquals(4, rooms.length);
+    assertEquals(this.piccadilly, rooms[0]);
+    assertEquals(this.cambridge, rooms[1]);
+    assertEquals(this.victoria, rooms[2]);
+    assertEquals(this.westminister, rooms[3]);
+
+  }
+
+  @Test
+  void testGetByType() {
+
+    Collection<Room> guestRooms = this.service.getByType("Premiere Room");
+
+    assertEquals(2, guestRooms.size());
+    assertTrue(guestRooms.stream()
+        .allMatch(r -> r.getType().equals("Premiere Room")));
     assertEquals(4, this.service.getInventory().size());
+
   }
 
-  @Test
-  void testCreateRooms() {
-    Room[] newRooms = {this.westminister, this.oxford, this.manchester};
-
-    this.service.createRooms(newRooms);
-
-    assertEquals(6, this.service.getInventory().size());
-  }
-
-  @Test
-  void testRemoveRoom() {
-
-    this.service.removeRoom(new Room("Victoria", "Suite", 5, 225.00));
-
-    assertEquals(2, this.service.getInventory().size());
-    assertFalse(this.service.getInventory().contains(victoria));
-  }
-
-  @Test
-  void testGetInventory() {
-    assertNotNull(this.service.getInventory());
-  }
 }

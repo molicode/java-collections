@@ -3,45 +3,45 @@ package com.linkedin.collections._06;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class RoomService {
 
-  // 1. Declare a Collection to store Room Inventory
   private Collection<Room> inventory;
 
   public RoomService() {
+    this.inventory = new LinkedHashSet<>();
+  }
 
-    // 2. Initialize Collection and assign it to the Room Inventory
-    this.inventory = new HashSet<>();
+  public boolean hasRoom(Room room) {
+    return this.inventory.contains(room);
+  }
+
+  public Room[] asArray() {
+    return this.inventory.toArray(new Room[0]);
+  }
+
+  public Collection<Room> getByType(String type) {
+    Collection<Room> copy = new HashSet<>(this.inventory);
+    copy.removeIf(r -> !r.getType().equals(type));
+    return copy;
 
   }
 
   public Collection<Room> getInventory() {
-
-    // 3. Return the Room Inventory
-
     return new HashSet<>(this.inventory);
   }
 
-  public void createRoom(String name, String type, int capacity, double rate) {
-
-    // 4. Add a new Room to the Room Inventory using the provided parameters
-    this.inventory.add(new Room(name, type, capacity, rate));
-
+  public void createRoom(String name, String type, int capacity, double price) {
+    this.inventory.add(new Room(name, type, capacity, price));
   }
 
   public void createRooms(Room[] rooms) {
-
-    // 5. Add the Rooms provided in the Array to the Room Inventory
     this.inventory.addAll(Arrays.asList(rooms));
-
   }
 
   public void removeRoom(Room room) {
-
-    // 6. Remove the provided Room from the Room Inventory
     this.inventory.remove(room);
-
   }
 
 }
