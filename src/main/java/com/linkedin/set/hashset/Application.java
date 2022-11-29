@@ -35,8 +35,6 @@ public class Application {
     moreRooms.stream()
         .map(room -> room.getName())
         .forEach(System.out::println);
-
-
-
   }
+
 }
