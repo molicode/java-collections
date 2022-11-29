@@ -36,7 +36,7 @@ public class Application {
 //        }).forEach(new Consumer<Room>() {
 //          @Override
 //          public void accept(Room room) {
-//            System.out.println("[foreach|Consumer: ]" + room.getName());
+//            System.out.println("[foreach|Consumer]: " + room.getName());
 //          }
 //        });
 
